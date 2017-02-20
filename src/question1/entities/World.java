@@ -49,6 +49,21 @@ public class World {
         }
         return nearest;
     }
+    
+    public Food freshestFood() {
+        Food freshest = null;
+        long max = Long.MIN_VALUE;
+        for (Food f : foodList) {
+            if (f.isEatable()) {
+                long time = f.getCreatedAt();
+                if (time > max) {
+                    freshest = f;
+                    max = time;
+                }
+            }
+        }
+        return freshest;
+    }
 
 
     public void addPigeon(Pigeon p) {

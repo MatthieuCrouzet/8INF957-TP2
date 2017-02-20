@@ -21,11 +21,11 @@ public class Pigeon extends Entity {
     	while(true){
     		if(!isFleeing()){
     			chooseFleeingPosition();
-	        	Food nearestFood = lookForFood();
-	        	if(nearestFood != null){
-	        		moveToFood(nearestFood);
-	        		if (position.distanceTo(nearestFood.getPosition()) == 0) { 
-	                    eat(nearestFood);
+	        	Food food = lookForFood();
+	        	if(food != null){
+	        		moveToFood(food);
+	        		if (position.distanceTo(food.getPosition()) == 0) { 
+	                    eat(food);
 	                }
 	        	} else {
 	        		sleep();
@@ -75,7 +75,8 @@ public class Pigeon extends Entity {
 
     private Food lookForFood() {
     	//System.out.println("Pigeon" + identifier + " looks for food");
-        return this.world.nearestFood(this);
+        //return this.world.nearestFood(this);
+    	return world.freshestFood();
     }
 
     private void sleep(){

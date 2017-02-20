@@ -1,6 +1,8 @@
 package question1.entities;
 
 import java.awt.*;
+import java.time.Instant;
+import java.util.Date;
 import java.util.concurrent.locks.ReentrantLock;
 
 import question1.utils.Position;
@@ -9,12 +11,14 @@ public class Food extends Entity {
 	public ReentrantLock lock;
 	private int timeBetweenCheck = 50;
     private boolean eatable;
+    private long createdAt;
     private int rottenDuration = 10000;
 
     public Food(Position position) {
         super(position);
         this.eatable = true;
-        lock = new ReentrantLock();
+        this.lock = new ReentrantLock();
+        this.setCreatedAt(System.currentTimeMillis());
     	//System.out.println("New food : Food" + identifier);
     }
 
@@ -59,5 +63,13 @@ public class Food extends Entity {
 	        }
     	}
     }
+
+	public long getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(long createdAt) {
+		this.createdAt = createdAt;
+	}
     
 }
