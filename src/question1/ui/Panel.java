@@ -7,7 +7,7 @@ import question1.entities.World;
 import java.awt.*;
 import java.util.*;
 
-public class Drawing extends JPanel {
+public class Panel extends JPanel {
     /**
 	 * 
 	 */
@@ -16,7 +16,7 @@ public class Drawing extends JPanel {
 	private ArrayList<Shape> shapes;
     private World world;
 
-    public Drawing(UserInterface ui, World w) {
+    public Panel(UserInterface ui, World w) {
         super();
         this.shapes = new ArrayList<>();
         this.world = w;

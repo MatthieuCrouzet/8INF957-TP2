@@ -51,7 +51,7 @@ public class Pigeon extends Entity {
     	if(!f.lock.isLocked()){
     		f.lock.lock();
 	    	if(f.isEatable()){
-	    		System.out.println("Pigeon" + identifier + " eats Food" + f.identifier);
+	    		System.out.println("Pigeon" + identifier + " eats Food" + f.identifier + " !");
 	    		f.setEatable(false);
 	    		f.killShape();
 	    		world.removeFood(f);

@@ -21,7 +21,7 @@ public class UserInterface extends JFrame implements MouseListener {
 	 */
 	private static final long serialVersionUID = 2589162299251869835L;
 	
-	private Drawing panel;
+	private Panel panel;
 
     public UserInterface() {
         super();
@@ -35,7 +35,7 @@ public class UserInterface extends JFrame implements MouseListener {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        this.panel = new Drawing(this, w);
+        this.panel = new Panel(this, w);
         this.setContentPane(this.panel);
     }
 
