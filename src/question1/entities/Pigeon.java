@@ -3,7 +3,7 @@ package question1.entities;
 import question1.ui.UserInterface;
 import question1.utils.Position;
 
-public class Pigeon extends Entity {
+public class Pigeon extends Entity implements Runnable{
 	
     private World world;
     private boolean fleeing;

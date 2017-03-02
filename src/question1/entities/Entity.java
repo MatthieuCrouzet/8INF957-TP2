@@ -3,7 +3,7 @@ package question1.entities;
 import question1.ui.Shape;
 import question1.utils.Position;
 
-public class Entity extends Thread {
+public abstract class Entity implements Runnable{
 	
     protected static long id = 0;
     protected long identifier;
@@ -37,4 +37,8 @@ public class Entity extends Thread {
     public Shape getShape() {
         return shape;
     }
+
+	@Override
+	public abstract void run();
+		
 }
