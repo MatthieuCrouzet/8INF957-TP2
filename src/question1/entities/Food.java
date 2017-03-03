@@ -1,8 +1,6 @@
 package question1.entities;
 
-import java.awt.*;
-import java.time.Instant;
-import java.util.Date;
+import java.awt.Color;
 import java.util.concurrent.locks.ReentrantLock;
 
 import question1.utils.Position;

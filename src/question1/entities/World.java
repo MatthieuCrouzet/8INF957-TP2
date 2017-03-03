@@ -5,7 +5,7 @@ import java.util.*;
 import question1.ui.UserInterface;
 import question1.utils.Position;
 
-public class World {
+public class World implements Runnable{
 
     private List<Pigeon> PigeonList;
     private List<Food> foodList;
@@ -16,10 +16,10 @@ public class World {
         this.foodList = new ArrayList<>();
         this.ui = ui;
         ui.init(this);
-        ui.run();
+        Thread threadUI = new Thread(ui); 
+        threadUI.start();
         Noise noise = new Noise(this);
         noise.start();
-        run();
     }
 
 

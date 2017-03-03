@@ -12,7 +12,7 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class UserInterface extends JFrame implements MouseListener {
+public class UserInterface extends JFrame implements MouseListener, Runnable{
 
 	public static int size = 400;
 	
@@ -53,19 +53,21 @@ public class UserInterface extends JFrame implements MouseListener {
         switch(e.getButton()){
 	        case MouseEvent.BUTTON1 :
 	        	Food f = new Food(new Position(mousePosition));
+	        	Thread tf = new Thread(f);
 	            panel.getWorld().addFood(f);
 	            FoodShape foodShape = new FoodShape(new Point(f.getPosition().getX(), f.getPosition().getY()));
 	            f.setShape(foodShape);
 	            panel.addShape(foodShape);
-	        	f.start();
+	        	tf.start();
 	            break;
 	        case MouseEvent.BUTTON3 : 
 	        	Pigeon p = new Pigeon(new Position(mousePosition), panel.getWorld());
+	        	Thread tp = new Thread(p);
 	            panel.getWorld().addPigeon(p);
 	            PigeonShape pigeonShape = new PigeonShape(new Point(p.getPosition().getX(), p.getPosition().getY()));
 	            p.setShape(pigeonShape);
 	            panel.addShape(pigeonShape);
-	        	p.start();
+	        	tp.start();
 	            break;
         }
         
